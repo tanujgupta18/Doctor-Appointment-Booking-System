@@ -24,7 +24,9 @@ const Appointment = () => {
     let today = new Date();
     let allSlots = [];
 
-    for (let i = 0; i < 7; i++) {
+    let i = 0;
+
+    while (allSlots.length < 7) {
       let currentDate = new Date(today);
       currentDate.setDate(today.getDate() + i);
 
@@ -67,7 +69,10 @@ const Appointment = () => {
         currentDate.setMinutes(currentDate.getMinutes() + 30);
       }
 
-      allSlots.push(timeSlots);
+      if (timeSlots.length > 0) {
+        allSlots.push(timeSlots);
+      }
+      i++;
     }
 
     setDocSlots(allSlots);
