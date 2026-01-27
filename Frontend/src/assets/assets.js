@@ -30,6 +30,8 @@ import verified_icon from "./verified_icon.svg";
 import info_icon from "./info_icon.svg";
 import about_image from "./about_image.png";
 import contact_image from "./contact_image.png";
+import menu_icon from "./menu_icon.svg";
+import cross_icon from "./cross_icon.png";
 
 export const assets = {
   logo,
@@ -43,6 +45,8 @@ export const assets = {
   info_icon,
   about_image,
   contact_image,
+  menu_icon,
+  cross_icon,
 };
 
 export const specialityData = [

@@ -9,7 +9,12 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center text-sm mb-5 py-4 border-b border-b-gray-400">
-      <img src={assets.logo} alt="logo" className="w-44 cursor-pointer" />
+      <img
+        onClick={() => navigate("/")}
+        src={assets.logo}
+        alt="logo"
+        className="w-44 cursor-pointer"
+      />
       <ul className="uppercase hidden md:flex items-start gap-5 font-medium">
         <NavLink to="/">
           <li className="py-1">Home</li>
@@ -72,6 +77,44 @@ const Navbar = () => {
             Create Account
           </button>
         )}
+
+        <img
+          onClick={() => setShowMenu(true)}
+          className="w-6 md:hidden "
+          src={assets.menu_icon}
+          alt="menu-icon"
+        />
+
+        {/* ----- Mobile menu ----- */}
+        <div
+          className={`fixed inset-0 z-999 bg-white md:hidden transition-transform duration-300 ${
+            showMenu ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between px-5 py-6">
+            <img className="w-36" src={assets.logo} alt="logo" />
+            <img
+              className="w-7 cursor-pointer"
+              onClick={() => setShowMenu(false)}
+              src={assets.cross_icon}
+              alt="cross-icon"
+            />
+          </div>
+          <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
+            <NavLink onClick={() => setShowMenu(false)} to="/">
+              <p className="px-4 py-2 rounded inline-block">Home</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/doctors">
+              <p className="px-4 py-2 rounded inline-block">All Doctors</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/about">
+              <p className="px-4 py-2 rounded inline-block">About</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/contact">
+              <p className="px-4 py-2 rounded inline-block">Contact</p>
+            </NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   );
