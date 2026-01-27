@@ -29,6 +29,7 @@ import appointment_img from "./appointment_img.png";
 import verified_icon from "./verified_icon.svg";
 import info_icon from "./info_icon.svg";
 import about_image from "./about_image.png";
+import contact_image from "./contact_image.png";
 
 export const assets = {
   logo,
@@ -41,6 +42,7 @@ export const assets = {
   verified_icon,
   info_icon,
   about_image,
+  contact_image,
 };
 
 export const specialityData = [
