@@ -8,6 +8,7 @@ import Appointment from "./pages/Appointment";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import MyProfile from "./pages/MyProfile";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/my-profile" element={<MyProfile />} />
       </Routes>
 
       <Footer />
