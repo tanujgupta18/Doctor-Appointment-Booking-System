@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import { ToastContainer, toast } from "react-toastify";
 import { AdminContext } from "./context/AdminContext";
 import Navbar from "./components/Navbar";
+import SideBar from "./components/SideBar";
 
 const App = () => {
   const { aToken } = useContext(AdminContext);
@@ -11,6 +12,9 @@ const App = () => {
     <div className="bg-[#f8f9fd]">
       <ToastContainer />
       <Navbar />
+      <div className="flex items-start">
+        <SideBar />
+      </div>
     </div>
   ) : (
     <>
