@@ -61,11 +61,13 @@ const Appointment = () => {
       let timeSlots = [];
 
       while (currentDate < endTime) {
-        let formattedTime = currentDate.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        });
+        let formattedTime = currentDate
+          .toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+          })
+          .toUpperCase();
 
         let date = currentDate.getDate();
         let month = currentDate.getMonth() + 1;
@@ -75,10 +77,7 @@ const Appointment = () => {
         const slotTime = formattedTime;
 
         const isSlotAvailable =
-          docInfo.slots_booked[slotDate] &&
-          docInfo.slots_booked[slotDate].includes(slotTime)
-            ? false
-            : true;
+          !docInfo.slots_booked?.[slotDate]?.includes(formattedTime);
 
         if (isSlotAvailable) {
           // add slot to array
@@ -122,7 +121,7 @@ const Appointment = () => {
 
       if (data.success) {
         toast.success(data.message);
-        getDoctorsData();
+        await getDoctorsData();
         navigate("/my-appointments");
       } else {
         toast.error(data.message);
@@ -137,7 +136,9 @@ const Appointment = () => {
   }, [doctors, docId]);
 
   useEffect(() => {
-    getAvailableSlots();
+    if (docInfo) {
+      getAvailableSlots();
+    }
   }, [docInfo]);
 
   useEffect(() => {
@@ -222,7 +223,7 @@ const Appointment = () => {
                   className={`text-sm font-light shrink-0 px-5 py-2 rounded-full cursor-pointer ${item.time === slotTime ? "bg-primary text-white" : "text-gray-400 border border-gray-300"}`}
                   key={index}
                 >
-                  {item.time.toLowerCase()}
+                  {item.time}
                 </p>
               ))}
           </div>
