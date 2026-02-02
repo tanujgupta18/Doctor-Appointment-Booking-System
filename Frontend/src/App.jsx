@@ -9,7 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import MyProfile from "./pages/MyProfile";
-import MyAppointment from "./pages/MyAppointment";
+import MyAppointments from "./pages/MyAppointments";
 import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/my-profile" element={<MyProfile />} />
-        <Route path="/my-appointments" element={<MyAppointment />} />
+        <Route path="/my-appointments" element={<MyAppointments />} />
       </Routes>
 
       <Footer />
