@@ -152,7 +152,7 @@ const bookAppointment = async (req, res) => {
       userData,
       docData,
       amount: docData.fees,
-      slotTime,
+      slotTime: slotTime.toUpperCase(),
       slotDate,
       date: Date.now(),
     };
@@ -169,4 +169,23 @@ const bookAppointment = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser, getProfile, updateProfile, bookAppointment };
+// API to get user appointments
+const listAppointment = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const appointments = await appointmentModel.find({ userId });
+
+    res.json({ success: true, appointments });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export {
+  registerUser,
+  loginUser,
+  getProfile,
+  updateProfile,
+  bookAppointment,
+  listAppointment,
+};
