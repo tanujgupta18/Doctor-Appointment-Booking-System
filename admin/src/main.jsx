@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import AdminContextProvider, { AdminContext } from "./context/AdminContext.jsx";
+import AppContextProvider from "./context/AppContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AdminContextProvider>
-      <App />
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
     </AdminContextProvider>
   </BrowserRouter>,
 );
