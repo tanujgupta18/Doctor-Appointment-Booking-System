@@ -20,7 +20,7 @@ const SideBar = () => {
             to={"/admin-dashboard"}
           >
             <img src={assets.home_icon} alt="home-icon" />
-            <p>Dashboard</p>
+            <p className="hidden md:block">Dashboard</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -29,7 +29,7 @@ const SideBar = () => {
             to={"/all-appointments"}
           >
             <img src={assets.appointment_icon} alt="appointment-icon" />
-            <p>Appointments</p>
+            <p className="hidden md:block">Appointments</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -38,7 +38,7 @@ const SideBar = () => {
             to={"/add-doctor"}
           >
             <img src={assets.add_icon} alt="add-icon" />
-            <p>Add Doctor</p>
+            <p className="hidden md:block">Add Doctor</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -47,7 +47,7 @@ const SideBar = () => {
             to={"/doctor-list"}
           >
             <img src={assets.people_icon} alt="people-icon" />
-            <p>Doctors List</p>
+            <p className="hidden md:block">Doctors List</p>
           </NavLink>
         </ul>
       )}
@@ -62,7 +62,7 @@ const SideBar = () => {
             to={"/doctor-dashboard"}
           >
             <img src={assets.home_icon} alt="home-icon" />
-            <p>Dashboard</p>
+            <p className="hidden md:block">Dashboard</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
@@ -71,7 +71,7 @@ const SideBar = () => {
             to={"/doctor-appointments"}
           >
             <img src={assets.appointment_icon} alt="appointment-icon" />
-            <p>Appointments</p>
+            <p className="hidden md:block">Appointments</p>
           </NavLink>
 
           <NavLink
@@ -81,7 +81,7 @@ const SideBar = () => {
             to={"/doctor-profile"}
           >
             <img src={assets.people_icon} alt="people-icon" />
-            <p>Profile</p>
+            <p className="hidden md:block">Profile</p>
           </NavLink>
         </ul>
       )}
