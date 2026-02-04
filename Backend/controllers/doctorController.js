@@ -1,4 +1,6 @@
 import doctorModel from "../models/doctorModel.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 // API to Check Availablity
 const changeAvailablity = async (req, res) => {
@@ -26,4 +28,27 @@ const doctorList = async (req, res) => {
   }
 };
 
-export { changeAvailablity, doctorList };
+// API for doctor Login
+const loginDoctor = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const doctor = await doctorModel.findOne({ email });
+    if (!doctor) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    const isMatch = await bcrypt.compare(password, doctor.password);
+
+    if (isMatch) {
+      const token = jwt.sign({ id: doctor._id }, process.env.JWT_SECRET);
+      res.json({ success: true, token });
+    } else {
+      res.json({ success: false, message: "Invalid Credentials" });
+    }
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { changeAvailablity, doctorList, loginDoctor };
