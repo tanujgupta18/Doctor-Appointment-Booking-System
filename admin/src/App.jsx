@@ -9,17 +9,20 @@ import Dashboard from "./pages/Admin/Dashboard";
 import AllAppointments from "./pages/Admin/AllAppointments";
 import AddDoctor from "./pages/Admin/AddDoctor";
 import DoctorsList from "./pages/Admin/DoctorsList";
+import { DoctorContext } from "./context/DoctorContext";
 
 const App = () => {
   const { aToken } = useContext(AdminContext);
+  const { dToken } = useContext(DoctorContext);
 
-  return aToken ? (
+  return aToken || dToken ? (
     <div className="bg-[#f8f9fd]">
       <ToastContainer />
       <Navbar />
       <div className="flex items-start">
         <SideBar />
         <Routes>
+          {/* Admin Routes */}
           <Route path="/" element={<></>} />
           <Route path="/admin-dashboard" element={<Dashboard />} />
           <Route path="/all-appointments" element={<AllAppointments />} />
